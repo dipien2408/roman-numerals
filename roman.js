@@ -30,7 +30,7 @@ function romanToInt(input) {
 
       //check character does not exist in map 
       if (currentVal === undefined) {
-          throw new Error(`CHaracter is invalid: '${currentChar}'`);
+          throw new Error(`Character is invalid: '${currentChar}'`);
       }
 
       const nextVal = (i < n - 1) ? romanMap[input[i + 1]] : 0;
@@ -45,59 +45,59 @@ function romanToInt(input) {
   return total;
 }
 
-function runTests() {
-  console.log("=== TEST BEGIN ===");
+// function runTests() {
+//   console.log("=== TEST BEGIN ===");
 
-  const testCases = [
-      { input: "III", expected: 3 },
-      { input: "IV", expected: 4 },
-      { input: "IX", expected: 9 },
-      { input: "LVIII", expected: 58 },
-      { input: "MCMXCIV", expected: 1994 },
-      { input: "CDXLIV", expected: 444 }, 
-      //not valid character case
-      { input: "i", expected: 1 },        
-      { input: "  MCM  ", expected: 1900 }, 
-      { input: "", expected: 0 }        
-  ];
+//   const testCases = [
+//       { input: "III", expected: 3 },
+//       { input: "IV", expected: 4 },
+//       { input: "IX", expected: 9 },
+//       { input: "LVIII", expected: 58 },
+//       { input: "MCMXCIV", expected: 1994 },
+//       { input: "CDXLIV", expected: 444 }, 
+//       //not valid character case
+//       { input: "i", expected: 1 },        
+//       { input: "  MCM  ", expected: 1900 }, 
+//       { input: "", expected: 0 }        
+//   ];
 
-  let passedCount = 0;
+//   let passedCount = 0;
 
 
-  console.log("\n--- Logic Test ---");
-  testCases.forEach(test => {
-      try {
-          const result = romanToInt(test.input);
-          if (result === test.expected) {
-              console.log(`PASS | Input: "${test.input}" -> Output: ${result}`);
-              passedCount++;
-          } else {
-              console.log(`FAIL | Input: "${test.input}" -> Expected: ${test.expected}, Got: ${result}`);
-          }
-      } catch (e) {
-          console.log(`ERROR | Input: "${test.input}" Error: ${e.message}`);
-      }
-  });
+//   console.log("\n--- Logic Test ---");
+//   testCases.forEach(test => {
+//       try {
+//           const result = romanToInt(test.input);
+//           if (result === test.expected) {
+//               console.log(`PASS | Input: "${test.input}" -> Output: ${result}`);
+//               passedCount++;
+//           } else {
+//               console.log(`FAIL | Input: "${test.input}" -> Expected: ${test.expected}, Got: ${result}`);
+//           }
+//       } catch (e) {
+//           console.log(`ERROR | Input: "${test.input}" Error: ${e.message}`);
+//       }
+//   });
 
-  console.log("\n--- Error Handling ---");
-  const errorCases = [
-      { input: 123, desc: "Input is number" },
-      { input: "MC Q", desc: "Not roman numerals" },
-      { input: null, desc: "Input null" }
-  ];
+//   console.log("\n--- Error Handling ---");
+//   const errorCases = [
+//       { input: 123, desc: "Input is number" },
+//       { input: "MC Q", desc: "Not roman numerals" },
+//       { input: null, desc: "Input null" }
+//   ];
 
-  errorCases.forEach(test => {
-      try {
-          romanToInt(test.input);
-          console.log(`FAIL | Case [${test.desc}] must be errored`);
-      } catch (e) {
-          console.log(`PASS | Case [${test.desc}] error caught: "${e.message}"`);
-          passedCount++;
-      }
-  });
+//   errorCases.forEach(test => {
+//       try {
+//           romanToInt(test.input);
+//           console.log(`FAIL | Case [${test.desc}] must be errored`);
+//       } catch (e) {
+//           console.log(`PASS | Case [${test.desc}] error caught: "${e.message}"`);
+//           passedCount++;
+//       }
+//   });
 
-  console.log(`\n=== SUMMARY: ${passedCount}/${testCases.length + errorCases.length} TEST PASSED ===`);
-}
+//   console.log(`\n=== SUMMARY: ${passedCount}/${testCases.length + errorCases.length} TEST PASSED ===`);
+// }
 
-runTests();
+// runTests();
 
