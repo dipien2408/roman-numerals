@@ -1,4 +1,9 @@
 //mention case: input is not string, input is not uppercase, input is string but empty (""), character not roman numeral
+/**
+ * Converts a Roman numeral string to an integer.
+ * @param {string} input
+ * @return {number}
+ */
 function romanToInt(input) {
   //case input is not string (number,...)
     if (typeof input !== 'string') {
