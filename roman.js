@@ -1,48 +1,48 @@
 //mention case: input is not string, input is not uppercase, input is string but empty (""), character not roman numeral
 function romanToInt(input) {
   //case input is not string (number,...)
-  if (typeof input !== 'string') {
-      throw new Error("Input invalid: Expected a string.");
-  }
+    if (typeof input !== 'string') {
+        throw new Error("Input invalid: Expected a string.");
+    }
 
-  input = input.trim().toUpperCase();
+    input = input.trim().toUpperCase();
 
-  if (input.length === 0) {
-      return 0;
-  }
+    if (input.length === 0) {
+        return 0;
+    }
 
-  const romanMap = {
-      'I': 1,
-      'V': 5,
-      'X': 10,
-      'L': 50,
-      'C': 100,
-      'D': 500,
-      'M': 1000
-  };
+    const romanMap = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000
+    };
 
-  let total = 0;
-  const n = input.length;
+    let total = 0;
+    const n = input.length;
 
-  for (let i = 0; i < n; i++) {
-      const currentChar = input[i];
-      const currentVal = romanMap[currentChar];
+    for (let i = 0; i < n; i++) {
+        const currentChar = input[i];
+        const currentVal = romanMap[currentChar];
 
-      //check character does not exist in map 
-      if (currentVal === undefined) {
-          throw new Error(`Character is invalid: '${currentChar}'`);
-      }
+        //check character does not exist in map 
+        if (currentVal === undefined) {
+            throw new Error(`Character is invalid: '${currentChar}'`);
+        }
 
-      const nextVal = (i < n - 1) ? romanMap[input[i + 1]] : 0;
+        const nextVal = (i < n - 1) ? romanMap[input[i + 1]] : 0;
 
-      if (currentVal < nextVal) {
-          total -= currentVal;
-      } else {
-          total += currentVal;
-      }
-  }
+        if (currentVal < nextVal) {
+            total -= currentVal;
+        } else {
+            total += currentVal;
+        }
+    }
 
-  return total;
+    return total;
 }
 
 // function runTests() {
